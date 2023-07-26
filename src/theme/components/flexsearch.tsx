@@ -3,11 +3,12 @@ import FlexSearch from 'flexsearch'
 import { useRouter } from 'next/router'
 import type { ReactElement, ReactNode } from 'react'
 import { useCallback, useState } from 'react'
-import { DEFAULT_LOCALE } from '../constants'
 import type { SearchResult } from '../types'
 import { HighlightMatches } from './highlight-matches'
 import { Search } from './search'
+import { DEFAULT_LOCALE } from '../default-config'
 
+// @ts-ignore
 type SectionIndex = FlexSearch.Document<
   {
     id: string
@@ -20,6 +21,7 @@ type SectionIndex = FlexSearch.Document<
   ['title', 'content', 'url', 'display']
 >
 
+// @ts-ignore
 type PageIndex = FlexSearch.Document<
   {
     id: number
@@ -70,6 +72,7 @@ const loadIndexesImpl = async (
   )
   const data = (await response.json()) as NextraData
 
+  // @ts-ignore
   const pageIndex: PageIndex = new FlexSearch.Document({
     cache: 100,
     tokenize: 'full',
@@ -85,6 +88,7 @@ const loadIndexesImpl = async (
     }
   })
 
+  // @ts-ignore
   const sectionIndex: SectionIndex = new FlexSearch.Document({
     cache: 100,
     tokenize: 'full',
