@@ -1,7 +1,7 @@
 import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import { PartialDocsThemeConfig } from './src/theme/constants'
 
-const config: DocsThemeConfig = {
+const config: PartialDocsThemeConfig = {
   logo: <span>Archipel Project</span>,
   project: {
     link: 'https://github.com/archipel-project',
