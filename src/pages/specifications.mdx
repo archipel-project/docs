@@ -20,94 +20,12 @@
     - [ ]  Demander à l'auteur de c2me s'il veut bien participer ?
 - [ ]  Écrire notre propre ECS ou utiliser bevy ?
 
-## Micro-Services
 
-
-- [ ]  1 service de proxy (velocity like)
-- [ ]  1 service d'auth (qui tapera soit sur les serveurs de mojang, soit custom)
-- [ ]  1 à N service de stockage des mondes
-    - [ ]  clusterisable
-    - [ ]  load balancing
-    - [ ]  Importeur / exporteur de monde entre le format MC et le format custom
-- [ ]  1 à N service de logique des mondes
-
-## Projets
-
-- [ ]  Lib de paquets
-- [ ]  Lib de communication interservices
-
-## Base de connaissance
-
-- [x]  organisation
-    - [ ]  libs
-    - [ ]  serveurs
-    - [ ]  docs
-- [x]  la nouvelle base de connaissance (pour remplacer notion)
-- [x]  dev blog
-
-## Points techniques
-
-### Langage utilisé
-
-Rust sera utilisé dans tout le projet. L’ensemble du projet sera rangé dans un workspace cargo pour plus de simplicité.
-
-Voici quelques ressources disponibles :
-
-- si vous souhaitez apprendre le langage : https://github.com/rust-lang/rustlings
-- si vous cherchez la documentation de Rust : [The Rust Programming Language - The Rust Programming Language](https://doc.rust-lang.org/book/title-page.html)
-- si vous cherchez des librairies :
-	- [Docs.rs](https://docs.rs/)
-	- [Lib.rs — home for Rust crates](https://lib.rs/)
-
-## Nomenclature
-
-### Plugins
-
-Archive/dossier contenant l’ensemble des ressources nécessaires pour charger un projet
-
-### Modules
-
-Fichier lua ou shared libs qui contiennent la logique du plugin (blocs, items, etc.)
-
-### Assets
-
-Ressources supplémentaires utiles pour le plugin :
-
-- Convention commentaires rust : [Comments - The Rust Reference](https://doc.rust-lang.org/reference/comments.html)
-- Conventions nommage rust : 
-    - [Rust #5: Naming conventions](https://dev.to/cthutu/rust-5-naming-conventions-3cjf)
-    - [Naming - Rust API Guidelines](https://rust-lang.github.io/api-guidelines/naming.html)
-
-## Chunks
-
-- Un chunk est une unité de 16×16×16 blocks, soit 4096 blocks au total, il contiens:
-    - ses propres coordonnées relatives dans le monde
-    - des flags (voir plus bas)
-    - les id des blocks qui le compose
-    - un array de 2048 octets pour les données de lumière (soit 4 bits par niveau de lumière)
-    - la liste des (id) entités (+tileEntity?) qui s'y trouvent.
-- doit toujours avoir une taille statique en mémoire, cependant n'avoir aucune forme de compression serait une énorme perte d'espace (il y a beaucoup de chunks composé d'à peine une dizaine de blocks, voir que d'un block uniquement), afin de palier à ce problème, 2 implémentations d'un chunks :
-    - une version compressée avec une palette qui traduit les blocks sur 4 bits
-    - la représentation sur 4 bytes (cela permet de diviser par deux là taille d'un chunks en mémoire pour des id globaux d'un bloc sur 1 octet, par 4 si les blocks sont représentés sur 2 octets).
-- un chunks dois porter en en-tête les flags suivant :
-    - est-ce un chunk null (un simple trou dans le vecteur de stockage qui peut être refill
-    - est-ce qu'il y a besoin d'appliquer du random-tick speed
-    - est-ce qu'il soit être tické ?
-- un chunk compressé en mémoire ne doit pas nécessiter de traitement complexe. Les chunks nécessitant une update régulière peuvent être convertis vers un chunk non compressé
-- Le serveur possède deux vecteurs de chunks chargés en mémoire, pour les versions compressées et non compressées, pour les accès au chunks en fonction de leurs coordonnées, une map liant position à l'index du chunk dans le vecteur devra être utilisée. La vectorisation des chunks garantie que le tick soit rapide et limite les cache miss
-- pourquoi utiliser uniquement deux types de chunks : des variantes de palettes sur 5, 6, 7 et 8 bits augmenterais beaucoup la complexité du programme, avec une légère diminution de la quantité de mémoire utilisée mais aussi une perte en vitesse lors de l'update, car il faudrait négocier avec plus d'objets de différentes tailles
-- tous les chunks compressé en mémoire doivent avoir la même taille, il en va de même avec les chunks non compressées
-
-## Blocks
-
-- un block placé n’est qu'un entier sur 4 bytes (son id) dans un chunk
-- plusieurs variations d'un block sont des blocks différents, il n'y a pas de système de metadata à part les tile entity
-- les fonctions associés aux blocks (tick, update, on break, etc) sont toutes stockées dans un array, l'id du block devra être utilisée comme index pour récupérer ces fonctions
-- il doit être possible de créer des blocks avec une plage d'id contiguë pour tester facilement si un block fait parti d'un groupe (si il est compris dans la plage d'id), utile pour gérer des variations d'un block (redstone, piston, escalier, blocks waterlogged, etc)
-
-## Génération du monde
-
-### Ressources:
-
-<iframe width="854" height="480" src="https://www.youtube.com/embed/YyVAaJqYAfE" title="THIS is how Minecraft Works 💎⛏️" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<iframe width="854" height="480" src="https://www.youtube.com/embed/ob3VwY4JyzE" title="Reinventing Minecraft world generation by Henrik Kniberg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+* [Micro-Services](specifications/micro-services)
+* [Projets](specifications/projects)
+* [Base de connaissance](specifications/knowledge-base)
+* [Points techniques](specifications/technical-points)
+* [Nomenclature](specifications/nomenclature)
+* [Génération des mondes](specifications/world-gen)
+* [Chunks](specifications/chunks)
+* [Blocs](specifications/blocks)
