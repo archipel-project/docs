@@ -18,7 +18,7 @@ const LOADING_LOCALES: Record<string, string> = {
 
 const PLACEHOLDER_LOCALES: Record<string, string> = {
   'en-US': 'Search documentation',
-  fr: 'Rechercher documents',
+  fr: 'Rechercher des documents',
   ru: 'Поиск документации',
   'zh-CN': '搜索文档'
 }
