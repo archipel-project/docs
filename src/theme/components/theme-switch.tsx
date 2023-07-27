@@ -36,7 +36,7 @@ export function ThemeSwitch({
   return (
     <Select
       className={className}
-      title="Change theme"
+      title="Changer de thème"
       options={[
         { key: 'light', name: options.light },
         { key: 'dark', name: options.dark },

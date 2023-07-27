@@ -99,7 +99,7 @@ const Body = ({
           'nextra-body-typesetting-article'
       )}
     >
-      <main className="nx-w-full nx-min-w-0 nx-max-w-6xl nx-px-6 nx-pt-4 md:nx-px-12">
+      <main className="nx-w-full nx-min-w-0 nx-px-6 nx-pt-4 md:nx-px-12">
         {breadcrumb}
         {body}
       </main>
@@ -193,7 +193,7 @@ const InnerLayout = ({
       <div
         className={cn(
           'nx-mx-auto nx-flex',
-          themeContext.layout !== 'raw' && 'nx-max-w-[90rem]'
+          themeContext.layout !== 'raw' && 'nx-container nx-mx-auto nx-w-full'
         )}
       >
         <ActiveAnchorProvider>
@@ -259,8 +259,6 @@ export {
   Steps,
   Tabs,
   Tab,
-  Cards,
-  Card,
   FileTree
 } from 'nextra/components'
 export { useTheme } from 'next-themes'
@@ -273,5 +271,7 @@ export {
   Navbar,
   SkipNavContent,
   SkipNavLink,
-  ThemeSwitch
+  ThemeSwitch,
+  Cards,
+  Card,
 } from './components'

@@ -21,6 +21,7 @@
     "focus-visible": "^5.2.0",
     "git-url-parse": "^13.1.0",
     "intersection-observer": "^0.12.2",
+    "lucide-react": "^0.263.1",
     "match-sorter": "^6.3.1",
     "next": "^13.4.12",
     "next-seo": "^6.1.0",
@@ -31,6 +32,7 @@
     "scroll-into-view-if-needed": "^3.0.10"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
     "@types/flexsearch": "^0.7.3",
     "@types/git-url-parse": "^9.0.1",
     "@types/node": "^20.4.5",

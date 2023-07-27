@@ -1,4 +1,5 @@
 import { Card, Cards } from 'theme'
+import { GalleryVerticalEnd } from 'lucide-react'
 
 # Cahier des charges
 
@@ -22,37 +23,47 @@ import { Card, Cards } from 'theme'
 - [ ]  Écrire notre propre ECS ou utiliser bevy ?
 
 
-<Cards>
-  <Card
-    title="Micro-Services"
-    href="specifications/micro-services"
-  />
-  <Card
-    title="Projets"
-    href="specifications/projects"
-  />
-  <Card
-    title="Base de connaissances"
-    href="specifications/knowledge-base"
-  />
-  <Card
-    title="Points techniques"
-    href="specifications/technical-points"
-  />
-  <Card
-    title="Nomenclature"
-    href="specifications/nomenclature"
-  />
-  <Card
-    title="Génération des mondes"
-    href="specifications/worlds-gen"
-  />
-  <Card
-    title="Chunks"
-    href="specifications/chunks"
-  />
-  <Card
-    title="Blocs"
-    href="specifications/blocks"
-  />
-</Cards>
+<div className="nx-mt-16">
+  <Cards num={2}>
+    <Card
+      icon={<GalleryVerticalEnd />}
+      title="Micro-Services"
+      href="specifications/micro-services"
+    />
+    <Card
+      icon={<GalleryVerticalEnd />}
+      title="Projets"
+      href="specifications/projects"
+    />
+    <Card
+      icon={<GalleryVerticalEnd />}
+      title="Base de connaissances"
+      href="specifications/knowledge-base"
+    />
+    <Card
+      icon={<GalleryVerticalEnd />}
+      title="Points techniques"
+      href="specifications/technical-points"
+    />
+    <Card
+      icon={<GalleryVerticalEnd />}
+      title="Nomenclature"
+      href="specifications/nomenclature"
+    />
+    <Card
+      icon={<GalleryVerticalEnd />}
+      title="Génération des mondes"
+      href="specifications/worlds-gen"
+    />
+    <Card
+      icon={<GalleryVerticalEnd />}
+      title="Chunks"
+      href="specifications/chunks"
+    />
+    <Card
+      icon={<GalleryVerticalEnd />}
+      title="Blocs"
+      href="specifications/blocks"
+    />
+  </Cards>
+</div>
