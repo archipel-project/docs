@@ -7,7 +7,7 @@ import { DiscordIcon, GitHubIcon } from 'nextra/icons'
 import { useRouter } from 'next/router'
 import { isValidElement } from 'react'
 
-export const DEFAULT_LOCALE = 'en-US'
+export const DEFAULT_LOCALE = 'fr-fr'
 
 const LOADING_LOCALES: Record<string, string> = {
   'en-US': 'Loading',

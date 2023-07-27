@@ -7,12 +7,7 @@ const config = {
 const withNextra = require('nextra')(config)
 
 module.exports = {
-  ...withNextra({
-    i18n: {
-      locales: ['fr'],
-      defaultLocale: 'fr',
-    }
-  }),
+  ...withNextra(),
   basePath: process.env.NEXT_PUBLIC_BASE_PATH,
   assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH,
   images: {
