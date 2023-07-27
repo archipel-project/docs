@@ -1,0 +1,6 @@
+# Blocs
+
+- un bloc placé n’est qu'un entier sur 4 bytes (son id) dans un chunk
+- plusieurs variations d'un bloc sont des blocs différents, il n'y a pas de système de metadata à part les tile entity
+- les fonctions associés aux blocs (tick, update, on break, etc) sont toutes stockées dans un array, l'id du bloc devra être utilisée comme index pour récupérer ces fonctions
+- il doit être possible de créer des blocs avec une plage d'id contiguë pour tester facilement si un bloc fait parti d'un groupe (s'il est compris dans la plage d'id), utile pour gérer des variations d'un block (redstone, piston, escalier, blocs waterlogged, etc)

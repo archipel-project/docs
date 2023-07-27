@@ -1,0 +1,58 @@
+import { Card, Cards } from 'theme'
+
+# Cahier des charges
+
+## Fonctionnalités à choisir
+
+- [ ]  Compatibilité avec le protocole vanilla
+    - [ ]  ce layer doit-il être un module ? (du genre traduction la polymer?)
+    - [ ]  utilisation de raknetify ?
+- [ ]  Pas de limitations techniques sur la high limit
+- [x]  Écrit en Rust
+- [ ]  Dois pouvoir être multithreadable/mutli threadé (voire async ?)
+- [ ]  Light engine
+- [ ]  Dois supporter des add-ons (le contenu de Minecraft vanilla pourrait être lui-même un add-on, le soft du serveur n'étant qu'un moteur à “Minecraft”)
+- [ ]  Support de plugins (voir Nomenclature):
+    - [ ]  lib dynamique
+    - [ ]  en lua
+    - [ ]  en wren
+- [ ]  Ré-Implémentation du générateur de chunks de MC ?
+    - [ ]  (module ?)
+    - [ ]  Demander à l'auteur de c2me s'il veut bien participer ?
+- [ ]  Écrire notre propre ECS ou utiliser bevy ?
+
+
+<Cards>
+  <Card
+    title="Micro-Services"
+    href="specifications/micro-services"
+  />
+  <Card
+    title="Projets"
+    href="specifications/projects"
+  />
+  <Card
+    title="Base de connaissances"
+    href="specifications/knowledge-base"
+  />
+  <Card
+    title="Points techniques"
+    href="specifications/technical-points"
+  />
+  <Card
+    title="Nomenclature"
+    href="specifications/nomenclature"
+  />
+  <Card
+    title="Génération des mondes"
+    href="specifications/worlds-gen"
+  />
+  <Card
+    title="Chunks"
+    href="specifications/chunks"
+  />
+  <Card
+    title="Blocs"
+    href="specifications/blocks"
+  />
+</Cards>
