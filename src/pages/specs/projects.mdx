@@ -1,4 +1,97 @@
 # Projets
 
-- [ ]  Lib de paquets
-- [ ]  Lib de communication interservices
+Vous trouverez sur cette page les différentes parties nécessaires au bon fonctionnement du serveur.
+
+## Librairies
+
+### Librairie de paquets
+
+Cette librairie sera en charge d'interprété les paquets Minecraft et de les convertir vers un format compréhensible pour Rust et inversement.
+
+### Librairie de communication
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning">
+TODO !
+</Callout>
+
+
+## Outils
+
+### Importeur/Exporteur de monde
+
+Cet outil permettra d'importer et d'exporter des mondes Minecraft en les convertissant dans un format compréhensible par le serveur.
+
+
+## Services
+
+### Proxy
+
+Le proxy est le point d'entrée pour les joueurs. Ils pourront accéder au serveur de jeu en s'y connectant dessus.
+Ce proxy gèrera la connexion des joueurs, leur authentification et s'occupera d'accéder au bon worker en fonction du monde demandé.
+
+### Authentification
+
+Le service d'authentification aura 3 modes de fonctionnement :
+- en mode proxy : il authentifira les joueurs via les serveurs de mojang
+- en mode local : il authentifira les joueurs via une base de données locale ainsi que les serveurs de mojang
+- en mode offline : il authentifira les joueurs via une base de données locale sans vérifier les serveurs de mojang (mode hors ligne)
+
+### Stockage des mondes
+
+Le serveur de stockage est une base de données qui stockera le monde du serveur et il sera accessible par les workers.
+Ce serveur pourra être clusterisé pour permettre une meilleure répartition de la charge et ainsi prévenir les pannes.
+
+### Worker
+
+Le worker est le serveur de jeu, c'est lui qui fait toute la logique du jeu. Il est accessible via le proxy et récupère les données du monde via le serveur de stockage.
+Chaque worker prends en charge une à plusieurs dimensions. 
+jeu de base au complet (overworld, nether, end).
+
+### Manager
+
+Le manager sera là pour chapoter les différents services et garder une cohésion. C'est par le biais de ce dernier qu'il sera possible de gérer l'infrastructure du serveur.
+(joueurs, mondes, nodes, backups, etc.)
+
+## Diagramme de relation des services
+
+```mermaid
+graph TD
+    Manager
+    IE[Importeur/Exporteur de monde]
+
+    subgraph Services [Services]
+        Proxy
+        Authentification
+        Mojang[Serveurs Mojang]
+        Client
+
+        subgraph Workers
+            direction LR
+            Worker1[Worker 1]
+            Worker2[Worker 2]
+            Worker3[Worker 3]
+
+            Worker1 ~~~ Worker2
+            Worker2 ~~~ Worker3
+        end
+        subgraph Storages [Stockage]
+            direction LR
+            Storage1[Stockage 1]
+            Storage2[Stockage 2]
+            
+            Storage1 <-- Synchronisation --> Storage2
+        end
+        
+        Workers <== Transfer de données ==> Storages
+
+        Client --> Proxy
+        Proxy --> Authentification
+        Authentification -. Proxy .-> Mojang
+        Proxy --> Workers
+    end
+
+    Manager --> Services
+
+```
