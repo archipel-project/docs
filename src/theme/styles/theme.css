@@ -12,7 +12,7 @@
 @import "./typesetting-article.css";
 
 html {
-  @apply nx-antialiased nx-text-base;
+  @apply nx-antialiased nx-text-base motion-safe:nx-scroll-smooth;
   font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
   -webkit-tap-highlight-color: transparent;
 }
