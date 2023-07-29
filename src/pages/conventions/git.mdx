@@ -1,0 +1,60 @@
+import { Callout } from "nextra/components";
+import Image from "next/image";
+
+# Conventions du GitHub
+
+Pour contribuer au projet, vous devrez respecter quelques conventions.
+
+## Conventions de nommage
+
+Pour écrire nos messages de commit, nous suivons les spécification [Conventional Commits](https://www.conventionalcommits.org/fr)
+afin de maintenir une cohérence dans nos commits.
+
+### Exemples
+
+| Nom        | Utilisation                                                                    |
+| ---------- | ------------------------------------------------------------------------------ |
+| `feat`     | Ajout d'une nouvelle fonctionnalité                                            |
+| `fix`      | Correction de bugs                                                             |
+| `docs`     | Quand seul la documentation du code change                                     |
+| `perf`     | Changement de code améliorant les performances                                 |
+| `revert`   | Annule un commit précédent                                                     |
+| `style`    | Changement de style (indentation, espaces, etc)                                |
+| `test`     | Ajout ou modification de tests                                                 |
+| `refactor` | Changement de code qui n'ajoute pas de fonctionnalité ou de correction de bug  |
+| `ci`       | Changement dans les fichiers et scripts de configuration de CI (Github Action) |
+| `chore`    | Changement qui ne modifie ni les sources ni les tests                          |
+| `test`     | Ajout ou modification de tests                                                 |
+
+Pour en savoir plus, référez-vous à la documentation [Conventional Commits (fr)](https://www.conventionalcommits.org/fr).
+
+## Conventions des branches
+
+Pour gérer nos branches, nous utilisons le modèle [Git Flow](https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow).
+
+### Git Flow
+
+Git Flow est un modèle de gestion des branches alternatif et non-officiel. Il permet de maintenir une chaîne de commits mieux organisée et cohérente (les modifications en cours de développement dans `dev` et les modifications développées dans `main`).
+
+Ce modèle est composé de 5 branches principales/types :
+
+| Nom de la branche | Utilisation                  |
+| ----------------- | ---------------------------- |
+| `main`            | Branche principale           |
+| `dev`             | Branche de développement     |
+| `feature/*`       | Branche(s) de fonctionnalité |
+| `release/*`       | Branche(s) de release        |
+| `hotfix/*`        | Branche(s) de hotfix         |
+
+<Image
+  src="https://wac-cdn.atlassian.com/dam/jcr:a13c18d6-94f3-4fc4-84fb-2b8f1b2fd339/01%20How%20it%20works.svg?cdnVersion=1136"
+  alt="Diagramme Git Flow"
+  width={600}
+  height={400}
+  className="nx-my-8 lg:nx-max-w-4xl 3xl:nx-max-w-5xl"
+/>
+
+### Pourquoi utiliser Git Flow ?
+
+Git Flow offre une meilleur compréhension de chaques parties du projet et de suivre l'avancée d'une partie spécifique. Dans une branche `dev` on fait tous les commits et lorsque le tout fonctionne,
+on merge la branche sur la branche `main` ce qui nuie à la compréhension.
