@@ -1,6 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "tailwindcss/variants";
 @import "nextra/styles/variables.css";
 @import "nextra/styles/code-block.css";
 @import "nextra/styles/subheading-anchor.css";
@@ -11,7 +12,7 @@
 @import "./typesetting-article.css";
 
 html {
-  @apply nx-antialiased nx-text-base;
+  @apply nx-antialiased nx-text-base motion-safe:nx-scroll-smooth;
   font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
   -webkit-tap-highlight-color: transparent;
 }

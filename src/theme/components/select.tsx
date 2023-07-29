@@ -63,7 +63,7 @@ export function Select({
               ref={container}
               show={open}
               as={Listbox.Options}
-              className="nx-z-20 nx-max-h-64 nx-overflow-auto nx-rounded-md nx-ring-1 nx-ring-black/5 nx-bg-white nx-py-1 nx-text-sm nx-shadow-lg dark:nx-ring-white/20 dark:nx-bg-neutral-800"
+              className="nx-z-20 nx-max-h-64 nx-overflow-auto nx-rounded-md nx-ring-1 nx-ring-black/5 nx-bg-white nx-p-2 nx-text-sm nx-shadow-lg dark:nx-ring-white/20 dark:nx-bg-dark-800"
               leave="nx-transition-opacity"
               leaveFrom="nx-opacity-100"
               leaveTo="nx-opacity-0"
@@ -77,14 +77,14 @@ export function Select({
                       active
                         ? 'nx-bg-primary-50 nx-text-primary-600 dark:nx-bg-primary-500/10'
                         : 'nx-text-gray-800 dark:nx-text-gray-100',
-                      'nx-relative nx-cursor-pointer nx-whitespace-nowrap nx-py-1.5',
+                      'nx-relative nx-cursor-pointer nx-whitespace-nowrap nx-py-1.5 nx-rounded-md nx-px-3',
                       'nx-transition-colors ltr:nx-pl-3 ltr:nx-pr-9 rtl:nx-pr-3 rtl:nx-pl-9'
                     )
                   }
                 >
                   {option.name}
                   {option.key === selected.key && (
-                    <span className="nx-absolute nx-inset-y-0 nx-flex nx-items-center ltr:nx-right-3 rtl:nx-left-3">
+                    <span className="nx-absolute nx-inset-y-0 nx-flex nx-items-center nx-right-3 rtl:nx-left-3">
                       <CheckIcon />
                     </span>
                   )}

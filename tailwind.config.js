@@ -15,7 +15,8 @@ module.exports = {
   prefix: 'nx-',
   content: [
     './src/**/*.{ts,tsx,md,mdx}',
-    './theme.config.tsx'
+    './theme.config.tsx',
+    './node_modules/nextra/dist/components/callout.js'
   ],
   darkMode: ["class", 'html[class~="dark"]'],
   plugins: [require('@tailwindcss/typography')],
@@ -58,6 +59,7 @@ module.exports = {
       blue: colors.blue,
       yellow: colors.yellow,
       primary: {
+        DEFAULT: makePrimaryColor(50),
         50: makePrimaryColor(97),
         100: makePrimaryColor(94),
         200: makePrimaryColor(86),

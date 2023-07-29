@@ -1,4 +1,6 @@
 {
   "index": "Introduction",
-  "specifications": "Cahier des charges"
+  "specs": "Cahier des charges",
+  "conventions": "Conventions",
+  "resources": "Resources"
 }

@@ -230,7 +230,7 @@ export const getComponents = ({
     details: Details,
     summary: Summary,
     pre: Pre,
-    code: Code,
+    code: props => <Code className={cn("nx-py-0.5 nx-px-1 nx-text-red-400 dark:nx-text-red-300")} {...props} />,
     ...components
   }
 }
