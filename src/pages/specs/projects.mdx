@@ -87,9 +87,12 @@ graph TD
         Workers <== Transfer de données ==> Storages
 
         Client --> Proxy
+
         Proxy --> Authentification
         Authentification -. Proxy .-> Mojang
         Proxy --> Workers
+
+        style Mojang stroke-dasharray: 5 5
     end
 
     Manager --> Services
