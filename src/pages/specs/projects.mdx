@@ -6,7 +6,7 @@ Vous trouverez sur cette page les différentes parties nécessaires au bon fonct
 
 ### Librairie de paquets
 
-Cette librairie sera en charge d'interprété les paquets Minecraft et de les convertir vers un format compréhensible pour Rust et inversement.
+Cette librairie sera en charge d'interpréter les paquets Minecraft et de les convertir vers un format compréhensible pour Rust et inversement.
 
 ### Librairie de communication
 
@@ -28,15 +28,15 @@ Cet outil permettra d'importer et d'exporter des mondes Minecraft en les convert
 
 ### Proxy
 
-Le proxy est le point d'entrée pour les joueurs. Ils pourront accéder au serveur de jeu en s'y connectant dessus.
+Le proxy est le point d'entrée pour les joueurs. Ils pourront accéder au serveur de jeu en se connectant dessus.
 Ce proxy gèrera la connexion des joueurs, leur authentification et s'occupera d'accéder au bon worker en fonction du monde demandé.
 
 ### Authentification
 
 Le service d'authentification aura 3 modes de fonctionnement :
-- en mode proxy : il authentifira les joueurs via les serveurs de mojang
-- en mode local : il authentifira les joueurs via une base de données locale ainsi que les serveurs de mojang
-- en mode offline : il authentifira les joueurs via une base de données locale sans vérifier les serveurs de mojang (mode hors ligne)
+- en mode proxy : il authentifiera les joueurs via les serveurs de Mojang
+- en mode local : il authentifiera les joueurs via une base de données locale ainsi que les serveurs de Mojang
+- en mode offline : il authentifiera les joueurs via une base de données locale sans vérifier les serveurs de Mojang (mode hors ligne)
 
 ### Stockage des mondes
 
@@ -84,7 +84,7 @@ graph TD
             Storage1 <-- Synchronisation --> Storage2
         end
         
-        Workers <== Transfer de données ==> Storages
+        Workers <== Transfert de données ==> Storages
 
         Client --> Proxy
 
