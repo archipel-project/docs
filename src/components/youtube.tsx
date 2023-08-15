@@ -17,7 +17,7 @@ export function Youtube(props: YoutubeProps): JSX.Element {
           allowFullScreen
           frameBorder={0}
           className={cn(
-            "nx-w-full nx-aspect-video nx-max-h-96 nx-mx-auto group-hover:nx-shadow-lg nx-rounded-xl",
+            "nx-w-full nx-aspect-video nx-max-w-screen-md 4xl:nx-max-w-screen-lg nx-mx-auto group-hover:nx-shadow-lg nx-rounded-xl",
             "nx-border nx-bg-gray-100 dark:nx-border-neutral-700"
           )}
         ></iframe>

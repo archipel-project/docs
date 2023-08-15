@@ -173,3 +173,15 @@ input[type="search"] {
     opacity: 1;
   }
 }
+
+.nx-list-container {
+  @apply nx-mt-6;
+
+  .nx-list-container {
+    @apply nx-mt-0;
+  }
+
+  & li:has(.nx-list-container) + li {
+    @apply nx-mt-6;
+  }
+}

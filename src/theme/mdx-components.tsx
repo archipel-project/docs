@@ -196,13 +196,13 @@ export const getComponents = ({
     h6: (props) => <HeadingLink tag="h6" context={context} {...props} />,
     ul: (props) => (
       <ul
-        className="nx-mt-6 nx-list-disc first:nx-mt-0 ltr:nx-ml-6 rtl:nx-mr-6"
+        className="nx-list-container nx-list-disc first:nx-mt-0 ltr:nx-ml-6 rtl:nx-mr-6"
         {...props}
       />
     ),
     ol: (props) => (
       <ol
-        className="nx-mt-6 nx-list-decimal first:nx-mt-0 ltr:nx-ml-6 rtl:nx-mr-6"
+        className="nx-list-container nx-list-decimal first:nx-mt-0 ltr:nx-ml-6 rtl:nx-mr-6"
         {...props}
       />
     ),
