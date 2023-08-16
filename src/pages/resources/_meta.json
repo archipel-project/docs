@@ -1,6 +1,6 @@
 {
   "rust": "Rust",
-  "worlds-gen": "Génération des mondes",
+  "world-gen": "Génération des mondes",
   "storing-worlds": "Stockage des mondes",
   "networking": "Réseau"
 }
