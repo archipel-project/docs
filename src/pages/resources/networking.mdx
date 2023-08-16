@@ -1,0 +1,20 @@
+# Réseau
+
+Les différentes version de Minecraft utilisent leur propre protocole réseau.
+Il est donc nécessaire de comprendre comment fonctionne ce protocole pour pouvoir communiquer avec un serveur Minecraft.
+
+## Protocoles
+
+La version Java se sert d'un protocole se servant de TCP: 
+- https://wiki.vg/Protocol
+
+Tandis que la version Bedrock se sert du protocole Raknet passant par UDP:
+- https://wiki.vg/Bedrock_Protocol
+- https://wiki.vg/Raknet_Protocol
+
+## Exemple de code
+
+Vous trouverez ci-dessous un projet d'exemple développé par Bricklou, permettant d'imiter le comportement d'un serveur Minecraft
+quand un client lui demande des informations pour la page des serveurs multijoueurs.
+
+* https://github.com/Bricklou/mc-fake-ping-server
