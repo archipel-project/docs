@@ -1,19 +1,19 @@
 # Chunks
 
-- Un chunk est une unité de 16×16×16 blocks, soit 4096 blocks au total, il contient:
+- Un chunk est une unité de 16×16×16 blocs, soit 4096 blocs au total, il contient :
     - ses propres coordonnées relatives dans le monde
     - des flags (voir plus bas)
-    - les id des blocks qui le compose
+    - les id des blocs qui le compose
     - un array de 2048 octets pour les données de lumière (soit 4 bits par niveau de lumière)
     - la liste des (id) entités (+tileEntity ?) qui s'y trouvent.
-- Il doit toujours avoir une taille statique en mémoire, cependant n'avoir aucune forme de compression serait une énorme perte d'espace (il y a beaucoup de chunks composés d'à peine une dizaine de blocks, voir que d'un block uniquement), afin de palier à ce problème, 2 implémentations d'un chunks :
-    - une version compressée avec une palette qui traduit les blocks sur 4 bits
-    - la représentation sur 4 bytes (cela permet de diviser par deux là taille d'un chunks en mémoire pour des id globaux d'un block sur 1 octet, par 4 si les blocks sont représentés sur 2 octets).
-- Un chunk dois porter en en-tête les flags suivant :
-    - est-ce un chunk null (un simple trou dans le vecteur de stockage qui peut être refill
+- Il doit toujours avoir une taille statique en mémoire, cependant n'avoir aucune forme de compression serait une énorme perte d'espace (de nombreux chunks ne sont composés que d'une dizaine de blocs, voir d'un unique bloc), afin de palier à ce problème on peut implémenter un chunk de deux façons différentes :
+    - une version compressée avec une palette qui traduit les blocs sur 4 bits
+    - la représentation sur 4 bytes (cela permet de diviser par deux là taille d'un chunks en mémoire pour des id globaux d'un bloc sur 1 octet, par 4 si les blocs sont représentés sur 2 octets).
+- Un chunk dois porter en en-tête les flags suivants :
+    - est-ce un chunk null (un simple trou dans le vecteur de stockage qui peut être refill)
     - est-ce qu'il y a besoin d'appliquer du random-tick speed
-    - est-ce qu'il soit être tické ?
-- Un chunk compressé en mémoire ne doit pas nécessiter de traitement complexe. Les chunks nécessitant une mise à jour régulière peuvent être convertis vers un chunk non compressé
-- Le serveur possède deux vecteurs de chunks chargés en mémoire, pour les versions compressées et non compressées, pour les accès au chunks en fonction de leurs coordonnées, une map liant position à l'index du chunk dans le vecteur devra être utilisé. La vectorisation des chunks garantie que le tick soit rapide et limite les cache miss
+    - est-ce qu'il doit être tické ?
+- Un chunk compressé en mémoire ne doit pas nécessiter de traitement complexe. Les chunks nécessitant une mise à jour régulière peuvent être convertis vers un chunk non compressé.
+- Le serveur possède deux vecteurs de chunks chargés en mémoire, pour les versions compressées et non compressées, pour les accès au chunks en fonction de leurs coordonnées, une map liant la position à l'index du chunk dans le vecteur devra être utilisé. La vectorisation des chunks garantie que le tick soit rapide et limite les cache miss
 - Pourquoi utiliser uniquement deux types de chunks : des variantes de palettes sur 5, 6, 7 et 8 bits augmenterais beaucoup la complexité du programme, avec une légère diminution de la quantité de mémoire utilisée mais aussi une perte en vitesse lors de la mise à jour, car il faudrait négocier avec plus d'objets de différentes tailles
-- Tous les chunks compressé en mémoire doivent avoir la même taille, il en va de même avec les chunks non compressés
+- Tous les chunks compressés en mémoire doivent avoir la même taille, il en va de même avec les chunks non compressés
