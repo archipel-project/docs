@@ -19,7 +19,7 @@
     "@popperjs/core": "^2.11.8",
     "flexsearch": "^0.7.21",
     "focus-visible": "^5.2.0",
-    "git-url-parse": "^13.1.0",
+    "git-url-parse": "^14.0.0",
     "intersection-observer": "^0.12.2",
     "lucide-react": "^0.302.0",
     "match-sorter": "^6.3.1",
